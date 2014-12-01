@@ -1,7 +1,9 @@
 $(document).ready(function() {
   $('a[href*="imgur.com"]')
     .filter(function() {
-      return this.href.match(/.*imgur.com.*\.gif.*/);
+      return this.href.match(/.*imgur.com.*\.gif*/);
+    }).filter(function() {
+      return !this.href.match(/.*\.gifv.*/);
     }).each(function() {
       this.href = this.href.replace('gif', 'gifv');
     });
@@ -11,6 +13,5 @@ $(document).ready(function() {
       return this.href.match(/.*gfycat.com.*\.gif.*/);
     }).each(function() {
       this.href = this.href.replace(/(https?:\/\/).*(gfycat.com.*)\.gif.*/, '$1$2')
-      console.log(this.href);
     });
 });
