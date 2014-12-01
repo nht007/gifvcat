@@ -10,10 +10,16 @@
     "128": "icons/icon128.png"
   },
   "default_locale": "en",
-  "background": {
-    "scripts": [
-      "src/bg/gifvcat.js"
-    ],
-    "persistent": true
-  }
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "js/jquery/jquery.min.js",
+        "src/inject/gifvcat.js"
+      ]
+    }
+  ]
 }
